@@ -1,0 +1,32 @@
+/* Chatbot.css */
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+.message {
+  border-radius: 10px;
+  padding: 10px;
+  text-align: left; /* Ensure text is aligned to the left */
+}
+
+.loading {
+  font-size: 1.5em;
+}
+
+input {
+  width: calc(100% - 100px);
+  padding: 10px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 10px;
+}
