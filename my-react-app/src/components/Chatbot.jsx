@@ -56,6 +56,7 @@ function Chatbot() {
           <button onClick={sendMessage}>Send</button>
         </div>
       )}
+      {!dbCreated && <button onClick={createDatabase}>Create Database</button>}
     </div>
   );
 }
