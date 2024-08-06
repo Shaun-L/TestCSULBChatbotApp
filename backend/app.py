@@ -1,22 +1,20 @@
 # backend/app.py
 from flask import Flask, request, jsonify
 from flask_cors import CORS
-from model import make_db, generate_response
+from model import compile_model, generate_response
 import os
 
 app = Flask(__name__)
 CORS(app) 
 
-vectorstore = None
+model = None
 db_created = False
 
 @app.route('/create-db', methods=['POST'])
 def create_db():
-    global vectorstore
-    global db_created
+    global model
     try:
-        vectorstore = make_db()
-        db_created = True
+        model = compile_model()
         return jsonify({"message": "Database created successfully"}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
@@ -30,7 +28,7 @@ def query():
     
     try:
         # Assume vectorstore is globally available for this example
-        response = generate_response(vectorstore, question)
+        response = generate_response(model, question)
         return jsonify({"response": response}), 200
     except Exception as e:
         return jsonify({"error": str(e)}), 500
